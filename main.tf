@@ -45,6 +45,8 @@ resource "aws_rds_cluster" "shipping" {
   vpc_security_group_ids = [aws_security_group.mysql_sg.id]
   storage_encrypted = true
   kms_key_id = var.kms_key_id
+  skip_final_snapshot  = true
+  apply_immediately = true
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
