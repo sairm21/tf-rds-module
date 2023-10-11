@@ -9,7 +9,7 @@ resource "aws_db_subnet_group" "mysql_cluster_subent_group" {
 }
 
 resource "aws_rds_cluster" "shipping" {
-  cluster_identifier      = "cluster-${var.component}-${var.env}"
+  cluster_identifier      = "shipping-dev"
   engine                  = var.engine
   engine_version          = var.engine_version
   database_name           = var.database_name
