@@ -19,3 +19,12 @@ resource "aws_rds_cluster" "shipping" {
   storage_encrypted = true
   kms_key_id = var.kms_key_id
 }
+
+resource "aws_rds_cluster_instance" "cluster_instances" {
+  count              = var.instance_count
+  identifier         = "${var.component}-${var.env}-instance-${count.index}"
+  cluster_identifier = aws_rds_cluster.shipping.id
+  instance_class     = var.instance_class
+  engine             = var.engine
+  engine_version     = var.engine_version
+}
