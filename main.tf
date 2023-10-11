@@ -1,5 +1,5 @@
-resource "aws_db_subnet_group" "mysql_cluster_group" {
-  name       = "${var.env}-${var.component}-subnet_group"
+resource "aws_db_subnet_group" "mysql_cluster_subent_group" {
+  name       = "mysql_cluster_subent_group"
   subnet_ids = var.subnet_ids
 
   tags = merge({
@@ -15,6 +15,6 @@ resource "aws_rds_cluster" "shipping" {
   database_name           = var.database_name
   master_username         = data.aws_ssm_parameter.mysql_username.value
   master_password         = data.aws_ssm_parameter.mysql_password.value
-  db_subnet_group_name = aws_db_subnet_group.mysql_cluster_group.name
+  db_subnet_group_name = aws_db_subnet_group.mysql_cluster_subent_group.name
   kms_key_id = var.kms_key_id
 }
