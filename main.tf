@@ -3,7 +3,7 @@ resource "aws_db_subnet_group" "mysql_cluster_subent_group" {
   subnet_ids = var.subnet_ids
 
   tags = merge({
-    Name = "${var.env}-${var.component}-subnet_group"
+    Name = "${var.env}-${var.component}-subnet-group"
   },
     var.tags)
 }
