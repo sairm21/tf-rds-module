@@ -8,3 +8,5 @@ variable "tags" {}
 variable "kms_key_id" {}
 variable "instance_class" {}
 variable "instance_count" {}
+variable "vpc_id" {}
+variable "sg_subnet_cidr" {}
