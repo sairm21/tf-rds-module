@@ -22,7 +22,7 @@ resource "aws_rds_cluster" "shipping" {
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = var.instance_count
-  identifier         = "${var.component}-${var.env}-instance-${count.index}"
+  identifier         = "shipping-dev-instance-${count.index}"
   cluster_identifier = aws_rds_cluster.shipping.id
   instance_class     = var.instance_class
   engine             = var.engine
