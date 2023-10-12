@@ -10,3 +10,4 @@ variable "instance_class" {}
 variable "instance_count" {}
 variable "vpc_id" {}
 variable "sg_subnet_cidr" {}
+variable "aws_db_subnet_group_tags" {}

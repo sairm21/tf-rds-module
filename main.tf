@@ -28,9 +28,7 @@ resource "aws_db_subnet_group" "mysql_cluster_subent_group" {
   name       = "mysql_cluster_subent_group"
   subnet_ids = var.subnet_ids
 
-  tags = merge({
-    Name = "${var.env}-${var.component}-subnet-group"
-  })
+  tags = var.aws_db_subnet_group_tags
 }
 
 resource "aws_rds_cluster" "shipping" {
