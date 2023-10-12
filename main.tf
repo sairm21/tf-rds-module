@@ -34,7 +34,7 @@ resource "aws_db_subnet_group" "mysql_cluster_subent_group" {
 }
 
 resource "aws_rds_cluster" "shipping" {
-  cluster_identifier      = "shipping-dev"
+  cluster_identifier      = "${var.component}-${var.env}-shipping-cluster"
   engine                  = var.engine
   engine_version          = var.engine_version
   database_name           = var.database_name
@@ -50,7 +50,7 @@ resource "aws_rds_cluster" "shipping" {
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = var.instance_count
-  identifier         = "shipping-dev-instance-${count.index}"
+  identifier         = "${var.component}-${var.env}-instance-${count.index}"
   cluster_identifier = aws_rds_cluster.shipping.id
   instance_class     = var.instance_class
   engine             = var.engine
