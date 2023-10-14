@@ -25,7 +25,7 @@ resource "aws_security_group" "mysql_sg" {
 }
 
 resource "aws_db_subnet_group" "mysql_cluster_subent_group" {
-  name       = "mysql_cluster_subent_group"
+  name       = "${var.component}-${var.env}-cluster-subent_group"
   subnet_ids = var.subnet_ids
 
   tags = merge({
